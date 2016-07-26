@@ -1,0 +1,188 @@
+@import 'mixins/breakpoints';
+@import 'mixins/animations';
+@import 'pages/homepage';
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Global...............Globally-available variables and config.
+ *
+ * TOOLS
+ * Mixins...............Useful mixins.
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Headings.............H1–H6 styles.
+ *
+ * OBJECTS
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ * Page-head............The main page header.
+ * Page-foot............The main page footer.
+ * Buttons..............Button elements.
+ *
+ */
+
+/*------------------------------------*\
+  Global variables
+\*------------------------------------*/
+
+$containerWidth--desktop: 1300px;
+$brandingHeight: 80px;
+$navTopHeight: 55px;
+$primaryFont: 'Open Sans', sans-serif;
+$primaryFontSize: 14px;
+
+// colors
+$leather: #c39738;
+$lightLeather: #dba42e;
+
+// sizes
+$smallBtnSize: 13px;
+
+/*------------------------------------*\
+  Base
+\*------------------------------------*/
+
+body {
+	font-family: $primaryFont;
+	font-size: $primaryFontSize;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
+a {
+	color: $leather;
+	@include transition('all 0.25s linear');
+
+	&:hover,
+	&:focus {
+		color: $lightLeather;
+	}
+}
+
+/*------------------------------------*\
+  Wrappers
+\*------------------------------------*/
+
+.container {
+	@include breakpoint(desktop) {
+		width: $containerWidth--desktop;
+	}
+}
+
+/*------------------------------------*\
+  Page-head
+\*------------------------------------*/
+
+.page-head {
+
+	a {
+		text-decoration: none;
+	}
+
+	ul {
+		padding-left: 0;
+		list-style-type: none;
+		margin-bottom: 0;
+
+		li {
+			display: inline;
+		}
+	}
+
+	.branding {
+		background-color: #1e1e1e;
+		height: $brandingHeight;
+
+		.branding__logo {
+			display: inline-block;
+    		line-height: $brandingHeight;
+		}
+
+		.branding__nav {
+			float: right;
+    		line-height: $brandingHeight;
+
+			li {
+				margin-left: 12px;
+				margin-right: 12px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.branding--inner {
+		padding-left: 65px;
+		padding-right: 65px;
+	}
+
+	.nav--top {
+		line-height: $navTopHeight;
+		text-align: center;
+		display: table;
+		width: 100%;
+
+		ul {
+	
+			li {
+				display: inline-block;
+				padding-left: 40px;
+				padding-right: 40px;
+				border-left: 1px solid #e5e5e5;
+
+				&:last-child {
+					border-right: 1px solid #e5e5e5;
+				}
+			}
+		}
+
+		a {
+			color: #1e1e1e;
+			line-height: $navTopHeight;
+			text-transform: uppercase;
+			font-weight: 600;
+
+			&:hover,
+			&:focus,
+			&.active {
+				color: $leather;
+			}
+		}
+	}
+
+}
+
+/*------------------------------------*\
+  Buttons
+\*------------------------------------*/
+
+.btn--leather {
+	background-color: $leather;
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	border: 2px solid $leather;
+
+	&:hover {
+		color: $leather;
+		background-color: #fff;
+		border: 2px solid $leather;
+	}
+}
+
+.btn--small {
+	font-size: $smallBtnSize;
+}
