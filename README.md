@@ -124,8 +124,6 @@ we have included 3 script tags in `app/index.html`.
 ```
 We'll want the final CSS and JavaScript file to be generated in the `js` folder, as `public/js/main.min.js` and `css` folder as `public/css/styles.min.css`. Hence, the markup would be:
 ```sh
-// generated ../public/index.html
-
 <head>
   <!--build:css css/styles.min.css-->
   <link rel="stylesheet" href="../public/css/styles.css">
@@ -182,6 +180,8 @@ gulp.task('watch', ['browserSync', 'sassTask', 'js', 'useref', 'fonts'], functio
 ```
 `Gulp-useref` is that it automatically changes all the scripts within "<!--build:" and "<!--endbuild-->" into one single file that points to `<!--build:js [path] -->`.
 ```sh
+// made after useref task ../public/index.html
+
 <head>
   <link rel="stylesheet" href="css/styles.min.css">
 </head>
