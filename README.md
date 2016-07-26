@@ -23,11 +23,10 @@ We will use the structure of a generic webapp:
       |- css/
       |- fonts/
       |- images/ 
-      |- index.html
       |- js/ 
   |- gulpfile.js
-  |- node_modules/ **vendors for gulp
-  |- bower_components/ **vendors for dev
+  |- node_modules/ /*vendors for gulp*/
+  |- bower_components/ /*vendors for dev*/
   |- package.json
 ```
 
@@ -46,7 +45,7 @@ var config = {
 ```
 ### 1. Browser sync
 
-Requires the gulp-sass plugin
+Requires the `browser-sync` plugin
 ```sh
 var browserSync = require('browser-sync').create();
 ```
@@ -64,7 +63,7 @@ gulp.task('browserSync', function() {
 ```
 ### 2. Sass
 
-Requires the gulp-sass plugin
+Requires the `gulp-sass` plugin
 ```sh
 var sass = require('gulp-sass');
 var notify = require("gulp-notify");
@@ -125,6 +124,8 @@ we have included 3 script tags in `app/index.html`.
 ```
 We'll want the final CSS and JavaScript file to be generated in the `js` folder, as `public/js/main.min.js` and `css` folder as `public/css/styles.min.css`. Hence, the markup would be:
 ```sh
+// generated ../public/index.html
+
 <head>
   <!--build:css css/styles.min.css-->
   <link rel="stylesheet" href="../public/css/styles.css">
@@ -139,7 +140,7 @@ We'll want the final CSS and JavaScript file to be generated in the `js` folder,
   <!--endbuild-->
 </body>
 ```
-Requires the gulp-sass plugin
+Requires the plugins
 ```sh
 var notify = require("gulp-notify");
 var useref = require('gulp-useref');
